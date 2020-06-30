@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ui/UIHealthBar.gd" type="Script" id=1]
+[ext_resource path="res://spoilers/ui.png" type="Texture" id=2]
+[ext_resource path="res://spoilers/tiles.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 160 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 160 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 1
+atlas = ExtResource( 3 )
+region = Rect2( 0, 192, 16, 16 )
+
+[node name="UIHealthBar" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 32.0
+margin_bottom = 160.0
+
+[node name="Bar" type="TextureProgress" parent="Control"]
+margin_right = 32.0
+margin_bottom = 160.0
+rounded = true
+texture_under = SubResource( 1 )
+texture_progress = SubResource( 2 )
+fill_mode = 3
+
+[node name="Sprite" type="Sprite" parent="Control"]
+position = Vector2( 0, 144 )
+texture = SubResource( 3 )
+centered = false
+

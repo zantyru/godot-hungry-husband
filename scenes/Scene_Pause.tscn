@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/Scene_Pause.gd" type="Script" id=1]
+[ext_resource path="res://resources/ui_theme.tres" type="Theme" id=2]
+[ext_resource path="res://resources/ui_font_32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/ui/UILevelCounter.tscn" type="PackedScene" id=4]
+
+[node name="Scene_Pause" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 48.0, 112.0, 352.0, 320.0 ],
+"_edit_vertical_guides_": [ 48.0, 464.0, 256.0 ]
+}
+
+[node name="Background" type="Polygon2D" parent="."]
+position = Vector2( -16, -16 )
+color = Color( 0, 0.670588, 0.670588, 1 )
+polygon = PoolVector2Array( 528, 16, 528, 400, 16, 400, 16, 16 )
+
+[node name="UI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 464.0
+margin_bottom = 112.0
+rect_clip_content = true
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "Пауза"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="UILevelCounter" parent="UI" instance=ExtResource( 4 )]
+position = Vector2( 192, 192 )
+
+[node name="ResumeButton" type="Button" parent="UI"]
+margin_left = 48.0
+margin_top = 320.0
+margin_right = 240.0
+margin_bottom = 352.0
+theme = ExtResource( 2 )
+text = "Продолжить"
+
+[node name="BackToMenuButton" type="Button" parent="UI"]
+margin_left = 272.0
+margin_top = 320.0
+margin_right = 464.0
+margin_bottom = 352.0
+theme = ExtResource( 2 )
+text = "Закончить"
+
+[connection signal="visibility_changed" from="." to="." method="_on_Scene_Pause_visibility_changed"]
+[connection signal="pressed" from="UI/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="UI/BackToMenuButton" to="." method="_on_BackToMenuButton_pressed"]

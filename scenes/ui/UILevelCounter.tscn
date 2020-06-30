@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/ui/UILevelCounter.gd" type="Script" id=1]
+[ext_resource path="res://spoilers/tiles.png" type="Texture" id=2]
+[ext_resource path="res://resources/ui_theme.tres" type="Theme" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 32, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 16, 224, 16, 16 )
+
+[node name="UILevelCounter" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 128.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 128, 32 )
+rect_clip_content = true
+
+[node name="Decor0" type="Sprite" parent="Control"]
+position = Vector2( 0, 16 )
+texture = SubResource( 1 )
+centered = false
+
+[node name="Decor1" type="Sprite" parent="Control"]
+position = Vector2( 16, 16 )
+texture = SubResource( 2 )
+centered = false
+
+[node name="Caption" type="Label" parent="Control"]
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+theme = ExtResource( 3 )
+text = "Уровень"
+clip_text = true
+max_lines_visible = 1
+
+[node name="Value" type="Label" parent="Control"]
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 128.0
+margin_bottom = 32.0
+rect_clip_content = true
+theme = ExtResource( 3 )
+text = "000000"
+clip_text = true
+max_lines_visible = 1
+

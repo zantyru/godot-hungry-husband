@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Actor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://spoilers/tiles.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 48, 128, 48, 64 )
+
+[node name="Actor_Dog" index="0" instance=ExtResource( 1 )]
+character_sheet_3x4 = SubResource( 1 )
+

@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/Scene_GameOver.gd" type="Script" id=1]
+[ext_resource path="res://resources/ui_theme.tres" type="Theme" id=2]
+[ext_resource path="res://resources/ui_font_32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/ui/UIScoreCounter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui/UITotalFoodCounter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ui/UILevelCounter.tscn" type="PackedScene" id=6]
+
+[node name="Scene_GameOver" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 112.0, 48.0, 128.0, 304.0, 320.0, 352.0 ],
+"_edit_vertical_guides_": [ 256.0, 48.0, 464.0 ]
+}
+
+[node name="Background" type="Polygon2D" parent="."]
+position = Vector2( -16, -16 )
+color = Color( 0, 0.670588, 0.670588, 1 )
+polygon = PoolVector2Array( 528, 16, 528, 400, 16, 400, 16, 16 )
+
+[node name="UI" type="Control" parent="."]
+margin_right = 512.0
+margin_bottom = 384.0
+
+[node name="Caption" type="Label" parent="UI"]
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 464.0
+margin_bottom = 112.0
+rect_clip_content = true
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "Вы устали"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="BackToMenuButton" type="Button" parent="UI"]
+margin_left = 160.0
+margin_top = 320.0
+margin_right = 352.0
+margin_bottom = 352.0
+theme = ExtResource( 2 )
+text = "В меню"
+
+[node name="UIScoreCounter" parent="UI" instance=ExtResource( 4 )]
+position = Vector2( 192, 160 )
+
+[node name="UITotalFoodCounter" parent="UI" instance=ExtResource( 5 )]
+position = Vector2( 112, 224 )
+
+[node name="UILevelCounter" parent="UI" instance=ExtResource( 6 )]
+position = Vector2( 272, 224 )
+
+[connection signal="pressed" from="UI/BackToMenuButton" to="." method="_on_BackToMenuButton_pressed"]

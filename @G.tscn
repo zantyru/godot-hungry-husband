@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+
+\"\"\"This is a storage for common constants and functions.\"\"\"
+
+
+const PASSED_FILENAMEPATH: = \"user://passed\"
+const EPSILON: float = 0.000001
+#warning-ignore:unused_class_variable
+onready var player: Player = Player.new()
+#warning-ignore:unused_class_variable
+var custom_level_description: LevelDescription
+var is_tutorial_passed: bool setget set_tutorial_pass, check_persistent_data
+
+
+func _ready():
+    randomize()
+    is_tutorial_passed = check_persistent_data()
+
+
+func set_tutorial_pass(value: bool) -> void:
+    var data: = File.new()
+    var err
+    is_tutorial_passed = value
+    if is_tutorial_passed:
+        err = data.open(PASSED_FILENAMEPATH, File.WRITE)
+        if err != OK:
+            is_tutorial_passed = false
+        data.close()
+    else:
+        if data.file_exists(PASSED_FILENAMEPATH):
+            var dir: = Directory.new()
+            err = dir.remove(PASSED_FILENAMEPATH)
+
+
+func check_persistent_data() -> bool:
+    var data: = File.new()
+    is_tutorial_passed = true if data.file_exists(PASSED_FILENAMEPATH) else false
+    return is_tutorial_passed
+
+
+func vec2_cmul(v1: Vector2, v2: Vector2) -> Vector2:
+    return Vector2(v1.x * v2.x, v1.y * v2.y)
+
+
+func vec2_cdiv(v1: Vector2, v2: Vector2) -> Vector2:
+    return Vector2(v1.x / v2.x, v1.y / v2.y)
+"
+
+[node name="G" type="Node"]
+pause_mode = 1
+script = SubResource( 1 )

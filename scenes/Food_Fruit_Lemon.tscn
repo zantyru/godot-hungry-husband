@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Food.tscn" type="PackedScene" id=1]
+[ext_resource path="res://spoilers/tiles.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 1
+atlas = ExtResource( 2 )
+region = Rect2( 48, 64, 16, 16 )
+
+[node name="Food_Fruit_Lemon" instance=ExtResource( 1 )]
+character_sheet_1x1 = SubResource( 1 )
+cost = 110
+will_restore_health = 5
+

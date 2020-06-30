@@ -1,0 +1,173 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://scenes/Actor.gd"
+}, {
+"base": "Reference",
+"class": "Actors",
+"language": "GDScript",
+"path": "res://codeonly/Actors.gd"
+}, {
+"base": "TileMap",
+"class": "CustomLevel",
+"language": "GDScript",
+"path": "res://scenes/CustomLevel.gd"
+}, {
+"base": "Node2D",
+"class": "Food",
+"language": "GDScript",
+"path": "res://scenes/Food.gd"
+}, {
+"base": "Reference",
+"class": "Foods",
+"language": "GDScript",
+"path": "res://codeonly/Foods.gd"
+}, {
+"base": "TileMap",
+"class": "Level",
+"language": "GDScript",
+"path": "res://scenes/Level.gd"
+}, {
+"base": "Reference",
+"class": "LevelDescription",
+"language": "GDScript",
+"path": "res://codeonly/LevelDescription.gd"
+}, {
+"base": "Reference",
+"class": "Levels",
+"language": "GDScript",
+"path": "res://codeonly/Levels.gd"
+}, {
+"base": "Reference",
+"class": "Map",
+"language": "GDScript",
+"path": "res://codeonly/Map.gd"
+}, {
+"base": "Reference",
+"class": "Pathfinder",
+"language": "GDScript",
+"path": "res://codeonly/Pathfinder.gd"
+}, {
+"base": "Reference",
+"class": "Player",
+"language": "GDScript",
+"path": "res://codeonly/Player.gd"
+}, {
+"base": "Reference",
+"class": "Step",
+"language": "GDScript",
+"path": "res://codeonly/Step.gd"
+}, {
+"base": "Reference",
+"class": "Tiles",
+"language": "GDScript",
+"path": "res://codeonly/Tiles.gd"
+} ]
+_global_script_class_icons={
+"Actor": "",
+"Actors": "",
+"CustomLevel": "",
+"Food": "",
+"Foods": "",
+"Level": "",
+"LevelDescription": "",
+"Levels": "",
+"Map": "",
+"Pathfinder": "",
+"Player": "",
+"Step": "",
+"Tiles": ""
+}
+
+[application]
+
+config/name="Hungry Husband"
+run/main_scene="res://scenes/Scene_MainMenu.tscn"
+run/disable_stdout=true
+run/disable_stderr=true
+config/icon="res://icon.png"
+
+[autoload]
+
+G="*res://@G.tscn"
+
+[debug]
+
+gdscript/completion/autocomplete_setters_and_getters=true
+
+[display]
+
+window/size/height=768
+window/size/resizable=false
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+window/stretch/shrink=2.0
+
+[input]
+
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_object_picking=false
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/2d/use_pixel_snap=true
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+quality/directional_shadow/size=256
+quality/directional_shadow/size.mobile=256
+quality/shadow_atlas/size=256
+quality/shadow_atlas/size.mobile=256
+quality/shadow_atlas/quadrant_0_subdiv=0
+quality/shadow_atlas/quadrant_1_subdiv=0
+quality/shadow_atlas/quadrant_2_subdiv=0
+quality/shadow_atlas/quadrant_3_subdiv=0
+quality/shadows/filter_mode=0
+quality/reflections/texture_array_reflections=false
+quality/reflections/high_quality_ggx=false
+environment/default_clear_color=Color( 0, 0, 0, 1 )
+quality/reflections/atlas_size=0
+quality/reflections/atlas_subdiv=0
+quality/depth/hdr=false
+quality/dynamic_fonts/use_oversampling=false

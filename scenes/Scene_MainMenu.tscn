@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Scene_MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://spoilers/ui-title-menu.png" type="Texture" id=2]
+[ext_resource path="res://resources/ui_theme.tres" type="Theme" id=3]
+[ext_resource path="res://resources/ui_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://resources/ui_font_8.tres" type="DynamicFont" id=5]
+
+[node name="Scene_MainMenu" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 160.0 ],
+"_edit_vertical_guides_": [ 256.0 ]
+}
+
+[node name="Background" type="Polygon2D" parent="."]
+position = Vector2( -16, -16 )
+color = Color( 0, 0.670588, 0.670588, 1 )
+polygon = PoolVector2Array( 528, 16, 528, 400, 16, 400, 16, 16 )
+
+[node name="ui-title-menu" type="TextureRect" parent="."]
+margin_left = 79.0
+margin_top = 112.0
+margin_right = 433.0
+margin_bottom = 166.0
+rect_pivot_offset = Vector2( 177, 48 )
+texture = ExtResource( 2 )
+stretch_mode = 3
+
+[node name="UI" type="Control" parent="."]
+margin_right = 512.0
+margin_bottom = 384.0
+
+[node name="ContinueButton" type="Button" parent="UI"]
+margin_left = 272.0
+margin_top = 224.0
+margin_right = 464.0
+margin_bottom = 256.0
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+disabled = true
+text = "Продолжение"
+clip_text = true
+
+[node name="NewGameButton" type="Button" parent="UI"]
+margin_left = 48.0
+margin_top = 224.0
+margin_right = 240.0
+margin_bottom = 256.0
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+text = "Новая игра"
+clip_text = true
+
+[node name="HelpButton" type="Button" parent="UI"]
+margin_left = 272.0
+margin_top = 272.0
+margin_right = 464.0
+margin_bottom = 304.0
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+text = "Справка"
+clip_text = true
+
+[node name="GeneratorButton" type="Button" parent="UI"]
+margin_left = 48.0
+margin_top = 272.0
+margin_right = 240.0
+margin_bottom = 304.0
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+text = "Генератор"
+clip_text = true
+
+[node name="ExitButton" type="Button" parent="UI"]
+margin_left = 160.0
+margin_top = 320.0
+margin_right = 352.0
+margin_bottom = 352.0
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
+text = "Выход"
+clip_text = true
+
+[node name="Label" type="Label" parent="UI"]
+margin_left = 240.0
+margin_top = 370.0
+margin_right = 512.0
+margin_bottom = 384.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.309804, 1, 1, 1 )
+text = "Конкурс \"Храм Хаоса\" на gamedev.ru"
+valign = 1
+
+[node name="Version" type="Label" parent="UI"]
+margin_top = 370.0
+margin_right = 96.0
+margin_bottom = 384.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.309804, 1, 1, 1 )
+text = "v0.98"
+valign = 1
+[connection signal="pressed" from="UI/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="UI/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="UI/HelpButton" to="." method="_on_HelpButton_pressed"]
+[connection signal="pressed" from="UI/GeneratorButton" to="." method="_on_GeneratorButton_pressed"]
+[connection signal="pressed" from="UI/ExitButton" to="." method="_on_ExitButton_pressed"]
